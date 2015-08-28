@@ -14,6 +14,7 @@ module.exports = {
     FlashMessageType: require('./lib/flashmessages.js').FlashMessageType,
     HTTPServer: require('./lib/httpserver.js'),
     Logger: require('./lib/logger.js'),
+    Mailer: require('./lib/mailer.js'),
     Model: require('./lib/model.js').Model,
     MongooseModel: require('./lib/mongoosemodel.js').MongooseModel,
     ValidationError: require('./lib/mongoosemodel.js').ValidationError,
