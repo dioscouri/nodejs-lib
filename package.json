@@ -1,6 +1,6 @@
 {
     "name": "dioscouri-core",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "private": true,
     "dependencies": {
         "async": ">=1.4.0",
@@ -17,6 +17,7 @@
         "monq": "git+https://github.com/dioscouri/nodejs-monq.git",
         "passport": "^0.2.2",
         "pkgcloud": "^1.2.0-alpha.0",
+        "randomstring": "^1.0.7",
         "swig": ">=1.4.2"
     },
     "devDependencies": {},
