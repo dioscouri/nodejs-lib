@@ -29,7 +29,7 @@ applicationFacade.on(ApplicationEvent.MONGO_CONNECTED, function(event){
 applicationFacade.init();
 
 // Loading models for application
-// applicationFacade.loadModels(__dirname + '/app/models/common');
+applicationFacade.loadModels('/app/models');
 
 /**
  * Loading Passport based on Passport model

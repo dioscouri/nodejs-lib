@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-queue-project",
+  "version": "0.1.1",
+  "private": true,
+  "dependencies": {
+    "async": ">=1.4.0",
+    "dioscouri-core": "git+https://github.com/dioscouri/nodejs-lib.git"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=0.10.35",
+    "npm": ">=1.4.28"
+  },
+  "scripts": {
+    "start": "iojs --es_staging --harmony_modules --harmony_arrow_functions server-queue.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dioscouri/nodejs-lib.git"
+  },
+  "author": "Dioscouri",
+  "main": "server-queue.js"
+}

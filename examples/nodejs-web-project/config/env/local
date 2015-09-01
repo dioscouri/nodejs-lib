@@ -1,0 +1,5 @@
+
+# MongoDB connection URL. Example:
+# MONGODB_URL = mongodb://user-name:password@host:27017/database
+MONGODB_URL = mongodb://localhost:27017/dsc_node_lib
+SESSION_SECRET=Nhd8HNhd-ks75drfs-bhdn-h8d_dkd
