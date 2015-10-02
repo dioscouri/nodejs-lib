@@ -16,6 +16,8 @@ module.exports = {
     Logger: require('./lib/logger.js'),
     Mailer: require('./lib/mailer.js'),
     Model: require('./lib/model.js').Model,
+    ModuleBootstrap: require('./lib/modulebootstrap.js'),
+    ModuleView: require('./lib/view/moduleview.js').ModuleView,
     MongooseModel: require('./lib/mongoosemodel.js').MongooseModel,
     ValidationError: require('./lib/mongoosemodel.js').ValidationError,
     PkgClient: require('./lib/pkgclient.js'),
