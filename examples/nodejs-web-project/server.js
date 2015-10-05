@@ -28,16 +28,9 @@ applicationFacade.on(ApplicationEvent.MONGO_CONNECTED, function(event){
 // Initializing all modules
 applicationFacade.init();
 
-// Loading models for application
+// Loading models and routes for Main application
 applicationFacade.loadModels('/app/models');
-
-/**
- * Loading Passport based on Passport model
- * @type {*}
- */
-// var userModel = require('./app/models/common/user.js');
 applicationFacade.server.loadRoutes('/app/routes');
-// applicationFacade.server.initPassport(userModel);
 
 /**
  * Running server

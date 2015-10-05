@@ -20,7 +20,6 @@ var applicationFacade = DioscouriCore.ApplicationFacade.instance;
 
 applicationFacade.load('server', DioscouriCore.HTTPServer);
 applicationFacade.load('queue', DioscouriCore.QueueClient);
-applicationFacade.load('moduleSimple', 'nodejs-module-simple');
 
 // Bind to ApplicationEvent.MONGO_CONNECTED event
 applicationFacade.on(ApplicationEvent.MONGO_CONNECTED, function(event){
@@ -32,16 +31,14 @@ applicationFacade.on(ApplicationEvent.MONGO_CONNECTED, function(event){
 // Initializing all modules
 applicationFacade.init();
 
-// Loading models for application
+// Loading models and routes for application
 applicationFacade.loadModels('/app/models');
+applicationFacade.server.loadRoutes('/app/routes');
 
 /**
- * Loading Passport based on Passport model
- * @type {*}
+ * Loading applications
  */
-// var userModel = require('./app/models/common/user.js');
-applicationFacade.server.loadRoutes('/app/routes');
-// applicationFacade.server.initPassport(userModel);
+applicationFacade.loadApplications('apps.json');
 
 /**
  * Running server
