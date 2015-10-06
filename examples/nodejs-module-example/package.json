@@ -6,7 +6,7 @@
         "acl": "^0.4.8",
         "async": ">=1.4.0",
         "bcrypt-nodejs": "0.0.3",
-        "dioscouri-core": "git+https://github.com/dioscouri/nodejs-lib.git#app-module-extension-example",
+        "dioscouri-core": "git+https://github.com/dioscouri/nodejs-lib.git",
         "nodejs-app-simple": "git+https://github.com/dioscouri/nodejs-app-sample.git",
         "mocha": ">=2.2.5",
         "moment": ">=2.10.6",

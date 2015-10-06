@@ -20,14 +20,14 @@ Using the example from above, our application will look for this config file:
 
 ## Run Application
 
-As nodejs itself do not support ES6 in production mode, you need to use iojs (modern branch of nodejs) to run the application.
+As nodejs itself now supports ES6 in production mode, you need to use latest nodejs build to run the application.
 
-Please download latest build of iojs from https://iojs.org/dist/
+Please download latest build of nodejs from https://nodejs.org/dist/
 
 Current build may be download using one of the links below.
 
-    Win-x64: https://iojs.org/dist/v3.2.0/iojs-v3.2.0-x64.msi
-    Mac: https://iojs.org/dist/v3.2.0/iojs-v3.2.0.pkg
+    Win-x64: https://nodejs.org/dist/v4.1.1/node-v4.1.1-x64.msi
+    Mac: https://nodejs.org/dist/v4.1.1/node-v4.1.1.pkg
 
 To run the application please do the following:
 
@@ -40,5 +40,5 @@ npm install
 And run server:
 
 ```
-iojs --es_staging --harmony_modules --harmony_arrow_functions server.js
+node server.js
 ```

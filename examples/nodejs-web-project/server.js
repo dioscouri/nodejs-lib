@@ -1,4 +1,7 @@
 
+// Using STRICT mode for ES6 features
+"use strict";
+
 var DioscouriCore = require('dioscouri-core');
 
 /**

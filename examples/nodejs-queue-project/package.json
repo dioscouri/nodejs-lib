@@ -8,11 +8,11 @@
   },
   "devDependencies": {},
   "engines": {
-    "node": ">=0.10.35",
-    "npm": ">=1.4.28"
+      "node": ">=4.1.1",
+      "npm": ">=2.13.4"
   },
   "scripts": {
-    "start": "iojs --es_staging --harmony_modules --harmony_arrow_functions server-queue.js"
+    "start": "node server-queue.js"
   },
   "repository": {
     "type": "git",
