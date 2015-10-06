@@ -1,4 +1,7 @@
 
+// Using STRICT mode for ES6 features
+"use strict";
+
 var DioscouriCore = require('dioscouri-core');
 
 /**
@@ -28,9 +31,14 @@ applicationFacade.on(ApplicationEvent.MONGO_CONNECTED, function(event){
 // Initializing all modules
 applicationFacade.init();
 
-// Loading models and routes for Main application
+// Loading models and routes for application
 applicationFacade.loadModels('/app/models');
 applicationFacade.server.loadRoutes('/app/routes');
+
+/**
+ * Loading applications
+ */
+applicationFacade.loadApplications('apps.json');
 
 /**
  * Running server
