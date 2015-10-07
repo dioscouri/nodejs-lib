@@ -10,6 +10,10 @@ module.exports = {
     ApplicationFacade: require('./lib/facade.js').ApplicationFacade,
     ControllerEvent: require('./lib/controller.js').ControllerEvent,
     Controller: require('./lib/controller.js').Controller,
+    Error: {
+        BaseError: require('./lib/error/error.js'),
+        LoaderError: require('./lib/error/loadererror.js')
+    },
     ExecutionState: require('./lib/controller.js').ExecutionState,
     FlashMessageType: require('./lib/flashmessages.js').FlashMessageType,
     HTTPServer: require('./lib/httpserver.js'),
