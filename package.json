@@ -20,7 +20,10 @@
         "randomstring": "^1.0.7",
         "swig": ">=1.4.2"
     },
-    "devDependencies": {},
+    "devDependencies": {
+        "mocha": ">=2.3.3",
+        "request": "^2.65.0"
+    },
     "engines": {
         "node": ">=4.1.1",
         "npm": ">=2.13.4"
