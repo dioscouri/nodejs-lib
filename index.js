@@ -12,6 +12,7 @@ module.exports = {
     Controller: require('./lib/controller.js').Controller,
     Error: {
         BaseError: require('./lib/error/error.js'),
+        HTTPError: require('./lib/error/httperror.js'),
         LoaderError: require('./lib/error/loadererror.js')
     },
     ExecutionState: require('./lib/controller.js').ExecutionState,
