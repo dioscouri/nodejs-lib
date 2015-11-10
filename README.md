@@ -42,3 +42,43 @@ And run server:
 ```
 node server.js
 ```
+
+## Setup Application Configuration
+
+### MongoDB
+
+To setup mongo please specify MongoDB connection URL in your config file. Example:
+
+
+    MONGODB_URL = mongodb://user-name:password@host:27017/database
+
+
+### HTTP Sessions
+
+System supports 3 different storages for HTTP sessions^ InMemory (by default), Redis and MongoDB. Session type must be configured in environment admin file.
+There are common parameters which must be defined: SESSION_STORAGE, SESSION_SECRET, SESSION_NAME.
+
+
+    SESSION_STORAGE - url described session storage
+
+    SESSION_SECRET - secret key to encrypt session uid
+
+    SESSION_NAME - name of the parameter in cookie to store session uid
+
+
+Example of session configuration with Redis storage:
+
+
+    SESSION_STORAGE=redis://127.0.0.1:6379?ttl=14400
+    SESSION_SECRET=1263-9857-9584-ab87-cf98
+    SESSION_NAME=application.sid
+
+
+Example of session configuration with MongoDB storage:
+
+
+    SESSION_STORAGE=mongodb://127.0.0.1:27017/session-database?ttl=14400
+    SESSION_SECRET=Session-Secret-UID-28123
+    SESSION_NAME=session.sid
+
+
