@@ -16,6 +16,8 @@ module.exports = {
         LoaderError: require('./lib/error/loadererror.js')
     },
     ExecutionState: require('./lib/controller.js').ExecutionState,
+    FlashMessage: require('./lib/flashmessages.js').FlashMessage,
+    FlashMessages: require('./lib/flashmessages.js').FlashMessages,
     FlashMessageType: require('./lib/flashmessages.js').FlashMessageType,
     HTTPServer: require('./lib/httpserver.js'),
     Logger: require('./lib/logger.js'),
