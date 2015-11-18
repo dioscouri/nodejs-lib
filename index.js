@@ -10,6 +10,10 @@ module.exports = {
     ApplicationFacade: require('./lib/facade.js').ApplicationFacade,
     ControllerEvent: require('./lib/controller.js').ControllerEvent,
     Controller: require('./lib/controller.js').Controller,
+    Controllers: {
+        CRUDController: require('./lib/controllers/crudcontroller.js'),
+        StateController: require('./lib/controllers/statecontroller.js')
+    },
     Error: {
         BaseError: require('./lib/error/error.js'),
         HTTPError: require('./lib/error/httperror.js'),
