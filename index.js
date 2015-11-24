@@ -12,7 +12,8 @@ module.exports = {
     Controller: require('./lib/controller.js').Controller,
     Controllers: {
         CRUDController: require('./lib/controllers/crudcontroller.js'),
-        StateController: require('./lib/controllers/statecontroller.js')
+        StateController: require('./lib/controllers/statecontroller.js'),
+        APIController: require('./lib/controllers/apicontroller.js')
     },
     Error: {
         BaseError: require('./lib/error/error.js'),
