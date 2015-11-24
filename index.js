@@ -30,6 +30,7 @@ module.exports = {
     AppBootstrap: require('./lib/appbootstrap.js'),
     ModuleView: require('./lib/view/moduleview.js').ModuleView,
     MongooseModel: require('./lib/mongoosemodel.js').MongooseModel,
+    BaseAPIModel: require('./lib/baseapimodel.js').BaseAPIModel,
     ValidationError: require('./lib/mongoosemodel.js').ValidationError,
     PkgClient: require('./lib/pkgclient.js'),
     QueueClient: require('./lib/queueclient.js'),
