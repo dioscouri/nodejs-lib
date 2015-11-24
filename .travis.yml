@@ -4,4 +4,4 @@ node_js:
 services:
   - mongodb
   - redis-server
-script: mocha
+script: APPLICATION_ENV=test mocha
