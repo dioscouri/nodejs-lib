@@ -12,7 +12,8 @@ module.exports = {
     Controller: require('./lib/controller.js').Controller,
     Controllers: {
         CRUDController: require('./lib/controllers/crudcontroller.js'),
-        StateController: require('./lib/controllers/statecontroller.js')
+        StateController: require('./lib/controllers/statecontroller.js'),
+        APIController: require('./lib/controllers/apicontroller.js')
     },
     Error: {
         BaseError: require('./lib/error/error.js'),
@@ -30,6 +31,9 @@ module.exports = {
     AppBootstrap: require('./lib/appbootstrap.js'),
     ModuleView: require('./lib/view/moduleview.js').ModuleView,
     MongooseModel: require('./lib/mongoosemodel.js').MongooseModel,
+    Models: {
+        BaseAPIModel: require('./lib/baseapimodel.js').BaseAPIModel
+    },
     ValidationError: require('./lib/mongoosemodel.js').ValidationError,
     PkgClient: require('./lib/pkgclient.js'),
     QueueClient: require('./lib/queueclient.js'),
