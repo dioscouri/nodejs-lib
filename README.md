@@ -81,4 +81,68 @@ Example of session configuration with MongoDB storage:
     SESSION_SECRET=Session-Secret-UID-28123
     SESSION_NAME=session.sid
 
+### Add HTTP Middleware
+
+To attach your own middleware you can bind to one of the following Application events:
+
+```JavaScript
+    HTTPServer.HTTPServerEvents = {
+        BEFORE_INIT: 'BEFORE_INIT',
+        BEFORE_INIT_HTTP_MIDDLEWARE: 'BEFORE_INIT_HTTP_MIDDLEWARE',
+        BEFORE_REGISTER_HTTP_STATIC: 'BEFORE_REGISTER_HTTP_STATIC',
+        BEFORE_REGISTER_HTTP_BODY: 'BEFORE_REGISTER_HTTP_BODY',
+        BEFORE_REGISTER_HTTP_COOKIE: 'BEFORE_REGISTER_HTTP_COOKIE',
+        BEFORE_REGISTER_HTTP_SESSION: 'BEFORE_REGISTER_HTTP_SESSION',
+        BEFORE_REGISTER_PASSPORT: 'BEFORE_REGISTER_PASSPORT',
+        AFTER_INIT_BASIC_MIDDLEWARE: 'AFTER_INIT_BASIC_MIDDLEWARE'
+    };
+```
+
+Please make sure that inside your application start file (server.js) your applications defined before init() method. Please see example below:
+
+```JavaScript
+applicationFacade.load('server', DioscouriCore.HTTPServer);
+applicationFacade.load('queue', DioscouriCore.QueueClient);
+
+/**
+ * Loading applications
+ */
+applicationFacade.loadApplications('apps.json');
+
+// Initializing all modules
+applicationFacade.init();
+
+/**
+ * Running server
+ */
+applicationFacade.run();
+```
+
+In you Bootstrap class you should define preInit() method and add Listeners to needed middleware events:
+
+```JavaScript
+/**
+ * Pre-Initializing module configuration
+ */
+preInit () {
+    /**
+     * Register middleware before ANY STATIC Resource handled. In this case middleware will be applied each time any resource (css, image, static html etc) loaded from the server.
+     */
+    this.applicationFacade.addListener(DioscouriCore.HTTPServer.HTTPServerEvents.BEFORE_REGISTER_HTTP_STATIC, function (event) {
+        this.server.application.use(function (req, res, next) {
+            console.log('CUSTOM MIDDLEWARE. Time:', Date.now());
+            next();
+        });
+    });
+    /**
+     * Register middleware before passport checks. In this case middleware will be applied before authorization middlewares.
+     */
+    this.applicationFacade.addListener(DioscouriCore.HTTPServer.HTTPServerEvents.BEFORE_REGISTER_PASSPORT, function (event) {
+        this.server.application.use(function (req, res, next) {
+            console.log('BEFORE_REGISTER_PASSPORT. Time:', Date.now());
+            next();
+        });
+    });
+}
+```
 
