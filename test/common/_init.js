@@ -25,11 +25,6 @@ var path = require('path');
  */
 var applicationFacade = DioscouriCore.ApplicationFacade.instance;
 
-// Redefine default application environment
-if (process.env.APPLICATION_ENV == null) {
-    process.env.APPLICATION_ENV = 'test';
-}
-
 function startAppServer (callback) {
     if (global.appServerInitializationRequested == null) {
 
