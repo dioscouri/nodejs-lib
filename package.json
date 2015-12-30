@@ -26,6 +26,7 @@
         "randomstring": "^1.0.7",
         "redis": "^2.0.1",
         "swig": ">=1.4.2",
+        "swig-lodash": "^1.2.1",
         "underscore": ">=1.8.3",
         "xlsx": "^0.8.0"
     },
