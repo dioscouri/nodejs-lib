@@ -146,3 +146,81 @@ preInit () {
 }
 ```
 
+### Use Model validator
+
+Configure mandatory fields validation:
+
+```JavaScript
+this._validationMandatoryFields = [{
+    patch: 'firstName',
+    // fix method
+    fix: (instance, callback) => {
+        instance.firstName = 'Some Name';
+        instance.save((err) => {
+            // @argument err - Error
+            // @argument fixed - Fixed or not, true or false
+            callback(err, true);
+        });
+    },
+    // Notification to create. Will not be created if the fix method return true as the second param in callback.
+    notification: {
+        type: 'MISSING_FIRST_NAME',
+        priority: 'danger',
+        message: 'Doctor first name is missing'
+    }
+}];
+```
+
+Configure custom validators:
+
+```JavaScript
+this._customValidators = [
+    (instance, errors, callback) => {
+
+        if (instance.someField != 'someValue') {
+            errors.push({
+                type: 'MY_ERROR',
+                priority: 'danger',
+                message: 'Opps'
+            });
+        }
+
+        // Also possible to fix the instance and not to push any error.
+        
+        callback();
+    }
+];
+```
+
+Notification callback:
+
+```JavaScript
+/**
+ * This callback will be called if fix method return error or false as the second param in callback, or fix method not defined.
+ * Can also be called if broken reference found.
+ *
+ * @param instance - resource instance
+ * @param notification
+ * @param callback
+ */
+notifyAboutInvalidResource (instance, notification, callback) {
+
+    // Create & Send the notification
+
+    DioscouriCore.ApplicationFacade.instance.registry.load('Admin.Models.Notification').sendNotification({
+        notificationType: notification.type,
+        resourceType: this.listName,
+        resourceId: instance._id,
+        message: notification.message,
+        priority: notification.priority,
+        originator: instance.last_modified_by,
+        targetUser: instance.last_modified_by
+    }, callback);
+}
+```
+
+In order to validate all Models instances use:
+
+```JavaScript
+model.validateAll(() => {/* Validation finished */})
+```
