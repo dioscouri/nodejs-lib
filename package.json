@@ -1,6 +1,6 @@
 {
   "name": "dioscouri-core",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "private": true,
   "dependencies": {
     "async": ">=1.4.0",
