@@ -27,6 +27,7 @@ module.exports = {
     HTTPServer: require('./lib/httpserver.js'),
     Logger: require('./lib/logger.js'),
     Mailer: require('./lib/mailer.js'),
+    Messaging: require('./lib/messaging.js'),
     Model: require('./lib/model.js').Model,
     AppBootstrap: require('./lib/appbootstrap.js'),
     ModuleView: require('./lib/view/moduleview.js').ModuleView,
