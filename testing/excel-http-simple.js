@@ -16,7 +16,7 @@ http.createServer((request, response) => {
 
     response.writeHead(200, {
         'Content-Disposition': `attachment; filename="export.xlsx"`,
-        'Transfer-Encoding': 'chunked',
+        //'Transfer-Encoding': 'chunked',
         'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     });
 
@@ -40,7 +40,11 @@ http.createServer((request, response) => {
 
     }, (err, n) => {
 
+        worksheet.commit();
+
         workbook.commit().then(() => {
+
+            response.end();
 
             console.log('done');
         });
