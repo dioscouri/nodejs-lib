@@ -2,13 +2,7 @@
 
 const Excel = require('exceljs');
 const http = require('http');
-const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://127.0.0.1:27017/excel-test');
-
-let Item = mongoose.model('item', {
-    field: String
-});
+const async = require('async');
 
 http.createServer((request, response) => {
 
@@ -26,26 +20,30 @@ http.createServer((request, response) => {
         'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     });
 
-    let stream = Item.find({}).cursor();
+    let count = 0;
 
-    stream.on('data', data => {
+    async.whilst(() => {
 
-        worksheet.addRow(data).commit();
-    });
+        return count < 1000;
 
-    stream.on('end', () => {
+    }, callback => {
 
-        // worksheet.commit();
+        count++;
+
+        console.log(`Write row ${count}`);
+
+        worksheet.addRow({field: 'test'}).commit();
+
+        setTimeout(() => {
+            callback(null, count);
+        }, 1000);
+
+    }, (err, n) => {
 
         workbook.commit().then(() => {
 
             console.log('done');
         });
-    });
-
-    stream.on('error', err => {
-
-        console.log(err);
     });
 
 }).listen(2000);
