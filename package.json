@@ -24,7 +24,7 @@
     "multiparty": "^4.1.2",
     "object-path": "^0.9.2",
     "passport": "^0.2.2",
-    "pkgcloud": "^1.2.0-alpha.0",
+    "pkgcloud": "1.4.0",
     "randomstring": "^1.0.7",
     "redis": "^2.0.1",
     "sendgrid": "^3.0.5",
