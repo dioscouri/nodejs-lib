@@ -17,7 +17,7 @@
     "express": ">=4.13.1",
     "express-flash": "0.0.2",
     "express-session": ">=1.11.3",
-    "json-stringify-safe": "5.0.1",
+    "jsan": "3.1.9",
     "mandrill-api": ">=1.0.45",
     "merge": "^1.2.0",
     "moment": ">=2.10.6",
